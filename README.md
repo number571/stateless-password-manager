@@ -28,7 +28,7 @@ go install github.com/number571/stateless-password-manager/cmd/spm
 ## Generate master-key
 
 ```bash
-spm --new-mk 128
+spm -m 128
 ANN GORY LOP WANT ELAN AUTO TEAR BUNT LEN OHIO TURF OVA
 ```
 
@@ -38,7 +38,7 @@ ANN GORY LOP WANT ELAN AUTO TEAR BUNT LEN OHIO TURF OVA
 > Do not use the specified master key!
 
 ```bash
-spm --target "google.com"
+spm -t "google.com"
 Master-Key: ANN GORY LOP WANT ELAN AUTO TEAR BUNT LEN OHIO TURF OVA
 Please wait a few seconds...
 Password: df626b36ae2f1f8d74525f9b7c620a2f82272df99da8c576cd1955bad6128ac6

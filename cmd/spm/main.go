@@ -13,8 +13,8 @@ import (
 )
 
 func main() {
-	newMK := flag.Uint64("new-mk", 0, "create master key with bit-size")
-	target := flag.String("target", "", "password for the target service")
+	newMK := flag.Uint64("m", 0, "create master key with a bit-size")
+	target := flag.String("t", "", "name of the target service")
 
 	flag.Parse()
 
@@ -31,7 +31,7 @@ func main() {
 		return
 	}
 
-	panic("target is null")
+	flag.Usage()
 }
 
 func loadMasterKey(s string) []byte {
