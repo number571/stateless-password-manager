@@ -25,13 +25,21 @@ func main() {
 
 	if t := *target; t != "" {
 		fmt.Print("Master-Key: ")
-		mk := readStdinUntilEOL()
+		mk := loadMasterKey(readStdinUntilEOL())
 		fmt.Println("Please wait a few seconds...")
 		fmt.Println("Password:", generatePassword(mk, t))
 		return
 	}
 
 	panic("target is null")
+}
+
+func loadMasterKey(s string) []byte {
+	b, err := gorfc1751.DecodeString(s)
+	if err != nil {
+		panic(err)
+	}
+	return b
 }
 
 func generateMasterKey(bits uint64) string {
@@ -42,8 +50,8 @@ func generateMasterKey(bits uint64) string {
 	return newMK
 }
 
-func generatePassword(mk, t string) string {
-	key, err := scrypt.Key([]byte(mk), []byte(t), 1<<20, 8, 1, 32)
+func generatePassword(mk []byte, t string) string {
+	key, err := scrypt.Key(mk, []byte(t), 1<<20, 8, 1, 32)
 	if err != nil {
 		panic(err)
 	}
