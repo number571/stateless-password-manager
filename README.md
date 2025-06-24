@@ -34,7 +34,7 @@ ANN GORY LOP WANT ELAN AUTO TEAR BUNT LEN OHIO TURF OVA
 
 ## Generate password
 
-> [!DANGER]
+> [!CAUTION]
 > Do not use the specified master key!
 
 ```bash

@@ -25,7 +25,8 @@ func main() {
 	}
 
 	if t := *target; t != "" {
-		mk := readUntilEOL()
+		fmt.Print("Master-Key: ")
+		mk := readStdinUntilEOL()
 		fmt.Println("Please wait a few seconds...")
 		fmt.Println("Password:", generatePassword(mk, t))
 		return
@@ -42,8 +43,7 @@ func generatePassword(mk, t string) string {
 	return hex.EncodeToString(key)
 }
 
-func readUntilEOL() string {
-	fmt.Print("Master-Key: ")
+func readStdinUntilEOL() string {
 	res, _, err := bufio.NewReader(os.Stdin).ReadLine()
 	if err != nil {
 		panic(err)
