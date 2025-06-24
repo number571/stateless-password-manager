@@ -19,11 +19,7 @@ func main() {
 	flag.Parse()
 
 	if bits := *newMK; bits != 0 {
-		newMK, err := gorfc1751.NewMnemonic(rand.Reader, bits)
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println(newMK)
+		fmt.Println(generateMasterKey(bits))
 		return
 	}
 
@@ -36,6 +32,14 @@ func main() {
 	}
 
 	panic("target is null")
+}
+
+func generateMasterKey(bits uint64) string {
+	newMK, err := gorfc1751.NewMnemonic(rand.Reader, bits)
+	if err != nil {
+		panic(err)
+	}
+	return newMK
 }
 
 func generatePassword(mk, t string) string {
