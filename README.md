@@ -22,7 +22,7 @@ p=1 (parallelism factor)
 ## Installation
 
 ```bash
-go install github.com/number571/serverless-password-manager/cmd/spm
+go install github.com/number571/stateless-password-manager/cmd/spm
 ```
 
 ## Generate master-key
