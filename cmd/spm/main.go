@@ -19,7 +19,10 @@ func main() {
 	flag.Parse()
 
 	if bits := *newMK; bits != 0 {
-		newMK := gorfc1751.NewMnemonic(rand.Reader, bits)
+		newMK, err := gorfc1751.NewMnemonic(rand.Reader, bits)
+		if err != nil {
+			panic(err)
+		}
 		fmt.Println(newMK)
 		return
 	}
