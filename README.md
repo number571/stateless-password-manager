@@ -1,6 +1,6 @@
 # Stateless Password Manager
 
-> A simple and reliable password manager that generates passwords based on a master-key
+> Simple and secure stateless password manager 
 
 ## Dependencies
 
@@ -27,15 +27,15 @@ go install github.com/number571/stateless-password-manager/cmd/spm
 
 ## Generate master-key
 
+> [!CAUTION]
+> Do not use the specified master key!
+
 ```bash
 spm -m 128
 ANN GORY LOP WANT ELAN AUTO TEAR BUNT LEN OHIO TURF OVA
 ```
 
 ## Generate password
-
-> [!CAUTION]
-> Do not use the specified master key!
 
 ```bash
 spm -t "google.com"
