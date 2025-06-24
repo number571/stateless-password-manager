@@ -13,17 +13,25 @@ import (
 )
 
 func main() {
-	newMK := flag.Uint64("m", 0, "create master key with a bit-size")
-	target := flag.String("t", "", "name of the target service")
+	var (
+		flagV = flag.Bool("v", false, "print version of application")
+		flagM = flag.Uint64("m", 0, "create master key with a bit-size")
+		flagT = flag.String("t", "", "name of the target service")
+	)
 
 	flag.Parse()
 
-	if bits := *newMK; bits != 0 {
+	if *flagV {
+		fmt.Println("v1.0.1")
+		return
+	}
+
+	if bits := *flagM; bits != 0 {
 		fmt.Println(generateMasterKey(bits))
 		return
 	}
 
-	if t := *target; t != "" {
+	if t := *flagT; t != "" {
 		fmt.Print("Master-Key: ")
 		mk := loadMasterKey(readStdinUntilEOL())
 		fmt.Println("Please wait a few seconds...")
